@@ -56,10 +56,5 @@ namespace Jaws_Intex.Models
         [Display(Name = "Zip Code")]
         public string Zip { get; set; }
 
-
-
-
-
-
     }
 }
