@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Jaws_Intex.DAL;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,6 +13,7 @@ namespace Jaws_Intex
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<NorthwestLabsContext>(null);
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
