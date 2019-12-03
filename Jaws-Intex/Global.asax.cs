@@ -1,4 +1,5 @@
 ﻿using Jaws_Intex.DAL;
+using Jaws_Intex.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

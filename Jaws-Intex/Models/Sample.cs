@@ -10,6 +10,7 @@ namespace Jaws_Intex.Models
     [Table("Sample")]
     public class Sample
     {
+        [Key]
         public int SampleId { get; set; }
 
         [Display(Name = "Compound ID")]

@@ -10,6 +10,7 @@ namespace Jaws_Intex.Models
     [Table("Client")]
     public class Client
     {
+        [Key]
         [Display(Name ="Client Id")]
         public int ClientId { get; set; }
 

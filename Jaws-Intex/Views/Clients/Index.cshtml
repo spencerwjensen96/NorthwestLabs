@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Jaws_Intex.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Primary_Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zip)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address_2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Primary_Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone_2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zip)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClientId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClientId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClientId })
+        </td>
+    </tr>
+}
+
+</table>

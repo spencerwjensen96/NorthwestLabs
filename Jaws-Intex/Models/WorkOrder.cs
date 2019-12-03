@@ -10,8 +10,8 @@ namespace Jaws_Intex.Models
     [Table("WorkOrder")]
     public class WorkOrder
     {
+        [Key]
         [Display(Name = "Order ID")]
-        [Required(ErrorMessage = "Order ID is required")]
         public int OrderId { get; set; }
 
         [Display(Name = "Order Date")]
