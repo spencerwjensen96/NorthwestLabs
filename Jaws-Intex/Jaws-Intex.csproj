@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Compound.cs" />
+    <Compile Include="Models\WorkOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
