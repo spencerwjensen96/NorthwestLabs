@@ -92,7 +92,7 @@ namespace Jaws_Intex.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Details/" + sample.SampleId);
             }
-            ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundID", "Name", sample.CompoundId);
+            ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundId", "Name", sample.CompoundId);
             return View(sample);
         }
 
