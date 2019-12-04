@@ -40,7 +40,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: WorkOrders/Create
-        public ActionResult Create()
+        public ActionResult Create(int? ClientId)
         {
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Company");
             ViewBag.StatusId = new SelectList(db.WorkOrderStatuses, "Id", "Status");

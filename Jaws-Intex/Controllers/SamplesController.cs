@@ -38,7 +38,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: Samples/Create
-        public ActionResult Create()
+        public ActionResult Create(int? CompoundId)
         {
             ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundId", "Name");
             return View();
