@@ -55,7 +55,8 @@ namespace Jaws_Intex.Controllers
             {
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                int newId = client.ClientId;
+                return RedirectToAction("Details/" + newId);
             }
 
             return View(client);
@@ -87,7 +88,7 @@ namespace Jaws_Intex.Controllers
             {
                 db.Entry(client).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details/" + client.ClientId);
             }
             return View(client);
         }

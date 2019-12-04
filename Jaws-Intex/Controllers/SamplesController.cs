@@ -55,10 +55,11 @@ namespace Jaws_Intex.Controllers
             {
                 db.Samples.Add(sample);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                int newId = sample.SampleId;
+                return RedirectToAction("Details/" + newId);
             }
 
-            ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundID", "Name", sample.CompoundId);
+            ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundId", "Name", sample.CompoundId);
             return View(sample);
         }
 
@@ -74,7 +75,7 @@ namespace Jaws_Intex.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundID", "Name", sample.CompoundId);
+            ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundId", "Name", sample.CompoundId);
             return View(sample);
         }
 
@@ -89,7 +90,7 @@ namespace Jaws_Intex.Controllers
             {
                 db.Entry(sample).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details/" + sample.SampleId);
             }
             ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundID", "Name", sample.CompoundId);
             return View(sample);

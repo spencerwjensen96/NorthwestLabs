@@ -58,7 +58,8 @@ namespace Jaws_Intex.Controllers
             {
                 db.WorkOrders.Add(workOrder);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                int newId = workOrder.OrderId;
+                return RedirectToAction("Details/" + newId);
             }
 
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Company", workOrder.ClientId);
@@ -94,7 +95,7 @@ namespace Jaws_Intex.Controllers
             {
                 db.Entry(workOrder).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details/" + workOrder.OrderId);
             }
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Company", workOrder.ClientId);
             ViewBag.StatusId = new SelectList(db.WorkOrderStatuses, "Id", "Status", workOrder.StatusId);

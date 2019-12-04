@@ -55,7 +55,8 @@ namespace Jaws_Intex.Controllers
             {
                 db.Compounds.Add(compound);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                int newId = compound.CompoundId;
+                return RedirectToAction("Details/" + newId);
             }
 
             return View(compound);
@@ -87,7 +88,7 @@ namespace Jaws_Intex.Controllers
             {
                 db.Entry(compound).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details/" + compound.CompoundId);
             }
             return View(compound);
         }
