@@ -16,3 +16,10 @@ textarea {
     max-width: 280px;
 }
 
+.navbar-custom {
+    padding: 20px;
+}
+
+.navbar-custom-link {
+    margin-right: 20px;
+}
