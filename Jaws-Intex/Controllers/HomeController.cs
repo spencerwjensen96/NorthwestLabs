@@ -32,12 +32,12 @@ namespace Jaws_Intex.Controllers
         [HttpPost]
         public ActionResult Login(FormCollection form, bool rememberMe = false)
         {
-            String email = form["Email address"].ToString();
-            String password = form["Password"].ToString();
+            string username = form["username"].ToString();
+            string password = form["password"].ToString();
 
-            if (string.Equals(email, "greg@test.com") && (string.Equals(password, "greg")))
+            if (string.Equals(username, "admin") && (string.Equals(password, "admin")))
             {
-                FormsAuthentication.SetAuthCookie(email, rememberMe);
+                FormsAuthentication.SetAuthCookie(username, rememberMe);
 
                 ViewBag.LoginBanner = "test";
                 //ViewBag.LoginBanner = "<div class='alert alert-success' role='alert'>" +
@@ -52,7 +52,7 @@ namespace Jaws_Intex.Controllers
             }
             else
             {
-                ViewBag.LoginMessage = "Incorrect Email or Password";
+                ViewBag.LoginMessage = "Incorrect username or password";
                 return View();
             }
         }
