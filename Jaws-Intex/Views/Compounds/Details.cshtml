@@ -9,7 +9,7 @@
 <div>
     <h4>Compound</h4>
     <hr />
-    <div style="display: flex">
+    <div style="display: flex; justify-content: space-between">
         <div>
             <dl class="dl-horizontal">
                 <dt>
@@ -121,15 +121,10 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Status.StatusName)
+                            @Html.DisplayFor(modelItem => item.StatusName)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.StatusDate)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                         </td>
                     </tr>
                 }

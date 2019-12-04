@@ -8,41 +8,14 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>CompoundStatus</h4>
+    <h4>Compound Status</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Status.StatusName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status.StatusName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CompoundId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CompoundId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StatusDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StatusDate)
-        </dd>
-
-    </dl>
-
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to Compound", "Index", new { Controller = "Compounds" })
         </div>
     }
 </div>
