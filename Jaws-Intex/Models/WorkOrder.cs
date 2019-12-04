@@ -16,8 +16,6 @@ namespace Jaws_Intex.Models
 
         [Display(Name = "Order Date")]
         [Required(ErrorMessage = "Order Date is required")]
-        [RegularExpression(@"(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$", 
-            ErrorMessage ="The date must be entered as MM/DD/YYYY")]
         public DateTime Order_Date { get; set; }
 
         [Display(Name = "Quoted Price")]
