@@ -17,6 +17,5 @@ namespace Jaws_Intex.DAL
         public DbSet<Compound> Compounds { get; set; }
         public DbSet<Sample> Samples { get; set; }
         public DbSet<Test> Tests { get; set; }
-
     }
 }

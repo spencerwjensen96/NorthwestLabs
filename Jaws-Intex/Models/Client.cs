@@ -59,5 +59,10 @@ namespace Jaws_Intex.Models
         [Display(Name = "Zip Code")]
         public string Zip { get; set; }
 
+        [Display(Name = "Payment Info")]
+        public string Payment_Info { get; set; }
+
+        public ICollection<WorkOrder> WorkOrders { get; set; }
+
     }
 }

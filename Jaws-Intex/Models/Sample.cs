@@ -47,7 +47,7 @@ namespace Jaws_Intex.Models
         [Display(Name = "End Date")]
         public DateTime? EndDate { get; set; }
 
-        [Display(Name = "Sample File URL")]
+        [Display(Name = "Sample Results URL")]
         public string Sample_File_URL { get; set; }
 
     }

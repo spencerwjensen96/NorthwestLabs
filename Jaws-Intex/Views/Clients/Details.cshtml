@@ -106,9 +106,81 @@
             @Html.DisplayFor(model => model.Zip)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment_Info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment_Info)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId }) |
+    @Html.ActionLink("Back to List of Clients", "Index")
 </p>
+<hr />
+<h4>Client's Work Orders</h4>
+<p>
+    @Html.ActionLink("Create New Work Order for Client", "Create", new { Controller = "WorkOrders", ClientId = Model.ClientId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Status
+        </th>
+        <th>
+            Order Date
+        </th>
+        <th>
+            Quoted Price
+        </th>
+        <th>
+            Amount Due
+        </th>
+        <th>
+            Data Report
+        </th>
+        <th>
+            Summary Report
+        </th>
+        <th>
+            Discount Percent
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.WorkOrders)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkOrderStatus.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quoted_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount_Due)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_Report_URL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary_Report_URL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount_Percent)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrderId, Controller = "WorkOrders" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrderId, Controller = "WorkOrders" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrderId, Controller = "WorkOrders" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -33,6 +33,8 @@ namespace Jaws_Intex.Controllers
             {
                 return HttpNotFound();
             }
+            var associatedWorkOrders = db.WorkOrders.SqlQuery("SELECT * FROM Work_Order WHERE ClientId = " + id).ToList<WorkOrder>();
+            client.WorkOrders = associatedWorkOrders;
             return View(client);
         }
 
@@ -47,7 +49,7 @@ namespace Jaws_Intex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientId,Company,Address_1,Address_2,Primary_Contact,Phone_1,Phone_2,Email_1,Email_2,City,State,Country,Zip")] Client client)
+        public ActionResult Create([Bind(Include = "ClientId,Company,Address_1,Address_2,Primary_Contact,Phone_1,Phone_2,Email_1,Email_2,City,State,Country,Zip,Payment_Info")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +81,7 @@ namespace Jaws_Intex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientId,Company,Address_1,Address_2,Primary_Contact,Phone_1,Phone_2,Email_1,Email_2,City,State,Country,Zip")] Client client)
+        public ActionResult Edit([Bind(Include = "ClientId,Company,Address_1,Address_2,Primary_Contact,Phone_1,Phone_2,Email_1,Email_2,City,State,Country,Zip,Payment_Info")] Client client)
         {
             if (ModelState.IsValid)
             {

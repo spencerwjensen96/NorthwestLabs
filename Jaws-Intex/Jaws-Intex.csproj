@@ -149,6 +149,12 @@
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Samples\Create.cshtml" />
+    <Content Include="Views\Samples\Delete.cshtml" />
+    <Content Include="Views\Samples\Details.cshtml" />
+    <Content Include="Views\Samples\Edit.cshtml" />
+    <Content Include="Views\Samples\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\WorkOrders\Create.cshtml" />
     <Content Include="Views\WorkOrders\Delete.cshtml" />
     <Content Include="Views\WorkOrders\Details.cshtml" />
@@ -159,12 +165,6 @@
     <Content Include="Views\Compounds\Details.cshtml" />
     <Content Include="Views\Compounds\Edit.cshtml" />
     <Content Include="Views\Compounds\Index.cshtml" />
-    <Content Include="Views\Samples\Create.cshtml" />
-    <Content Include="Views\Samples\Delete.cshtml" />
-    <Content Include="Views\Samples\Details.cshtml" />
-    <Content Include="Views\Samples\Edit.cshtml" />
-    <Content Include="Views\Samples\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

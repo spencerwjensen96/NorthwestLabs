@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<Jaws_Intex.Models.Compound>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Compounds";
 }
 
-<h2>Index</h2>
+<h2>Compounds</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -21,9 +18,6 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Date_Arrived)
         </th>
         <th>
@@ -33,13 +27,7 @@
             @Html.DisplayNameFor(model => model.Appearance)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Reported_Weight)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Molecular_Mass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Max_Tolerated_Dose)
+            @Html.DisplayNameFor(model => model.Due_Date)
         </th>
         <th></th>
     </tr>
@@ -56,9 +44,6 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Date_Arrived)
         </td>
         <td>
@@ -68,18 +53,12 @@
             @Html.DisplayFor(modelItem => item.Appearance)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Reported_Weight)
+            @Html.DisplayFor(modelItem => item.Due_Date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Molecular_Mass)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Max_Tolerated_Dose)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CompoundID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CompoundID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CompoundID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.CompoundID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CompoundID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CompoundID })
         </td>
     </tr>
 }

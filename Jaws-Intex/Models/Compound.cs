@@ -45,7 +45,11 @@ namespace Jaws_Intex.Models
 
         [Display(Name = "Max Tolerated Dose")]
         public decimal Max_Tolerated_Dose { get; set; }
+
+        [Display(Name = "Due Date")]
+        public DateTime? Due_Date { get; set; }
         
+        public ICollection<Sample> Samples { get; set; }
 
     }
 }

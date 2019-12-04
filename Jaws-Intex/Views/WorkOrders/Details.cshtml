@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>WorkOrder</h4>
+    <h4>Work Order</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -74,9 +74,84 @@
             @Html.DisplayFor(model => model.Discount_Percent)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Confirmation_Sent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Confirmation_Sent)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit Work Order", "Edit", new { id = Model.OrderId }) |
+    @Html.ActionLink("Back to List of Work Orders", "Index")
 </p>
+<hr />
+<h4>Associated Compounds</h4>
+<p>
+    @Html.ActionLink("Create New Compound for Work Order", "Create", new { Controller = "Compounds", OrderID = Model.OrderId})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            LT
+        </th>
+        <th>
+            Order Id
+        </th>
+        <th>
+            Compound Name
+        </th>
+        <th>
+            Date Arrived
+        </th>
+        <th>
+            Received By
+        </th>
+        <th>
+            Appearance
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Compounds)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Arrived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Received_By)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Appearance)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CompoundID, Controller = "Compounds" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CompoundID, Controller = "Compounds" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CompoundID, Controller = "Compounds" })
+            </td>
+        </tr>
+    }
+
+</table>
+

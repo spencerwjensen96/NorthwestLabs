@@ -34,6 +34,8 @@ namespace Jaws_Intex.Controllers
             {
                 return HttpNotFound();
             }
+            var associatedCompounds = db.Compounds.SqlQuery("SELECT * FROM Compound WHERE OrderId = " + id).ToList<Compound>();
+            workOrder.Compounds = associatedCompounds;
             return View(workOrder);
         }
 
@@ -50,7 +52,7 @@ namespace Jaws_Intex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Due,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent")] WorkOrder workOrder)
+        public ActionResult Create([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Due,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent,Notes,Confirmation_Sent")] WorkOrder workOrder)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +88,7 @@ namespace Jaws_Intex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Due,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent")] WorkOrder workOrder)
+        public ActionResult Edit([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Due,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent,Notes,Confirmation_Sent")] WorkOrder workOrder)
         {
             if (ModelState.IsValid)
             {

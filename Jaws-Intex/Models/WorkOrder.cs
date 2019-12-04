@@ -44,5 +44,13 @@ namespace Jaws_Intex.Models
         [Display(Name = "Discount")]
         public decimal? Discount_Percent { get; set; }
 
+        [Display(Name = "Notes")]
+        public string Notes { get; set; }
+
+        [Display(Name = "Confirmation Sent")]
+        public Boolean Confirmation_Sent { get; set; }
+
+        public virtual ICollection<Compound> Compounds { get; set; }
+
     }
 }

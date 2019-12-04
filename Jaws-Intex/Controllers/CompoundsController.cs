@@ -33,11 +33,13 @@ namespace Jaws_Intex.Controllers
             {
                 return HttpNotFound();
             }
+            var associatedSamples = db.Samples.SqlQuery("SELECT * FROM Sample WHERE CompoundId = " + id).ToList<Sample>();
+            compound.Samples = associatedSamples;
             return View(compound);
         }
 
         // GET: Compounds/Create
-        public ActionResult Create()
+        public ActionResult Create(int? OrderId)
         {
             return View();
         }
@@ -47,7 +49,7 @@ namespace Jaws_Intex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CompoundID,LT,OrderID,Name,Quantity,Date_Arrived,Received_By,Appearance,Reported_Weight,Molecular_Mass,Max_Tolerated_Dose")] Compound compound)
+        public ActionResult Create([Bind(Include = "CompoundID,LT,OrderID,Name,Quantity,Date_Arrived,Received_By,Appearance,Reported_Weight,Molecular_Mass,Max_Tolerated_Dose,Due_Date")] Compound compound)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +81,7 @@ namespace Jaws_Intex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CompoundID,LT,OrderID,Name,Quantity,Date_Arrived,Received_By,Appearance,Reported_Weight,Molecular_Mass,Max_Tolerated_Dose")] Compound compound)
+        public ActionResult Edit([Bind(Include = "CompoundID,LT,OrderID,Name,Quantity,Date_Arrived,Received_By,Appearance,Reported_Weight,Molecular_Mass,Max_Tolerated_Dose,Due_Date")] Compound compound)
         {
             if (ModelState.IsValid)
             {
