@@ -114,6 +114,10 @@ namespace Jaws_Intex.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Compound compound = db.Compounds.Find(id);
+            var associatedSamples = db.Samples.SqlQuery("SELECT * FROM Sample WHERE CompoundId = " + id).ToList<Sample>();
+            compound.Samples = associatedSamples;
+            compound.Samples.ToList().ForEach(x => db.Samples.Remove(x));
+
             db.Compounds.Remove(compound);
             db.SaveChanges();
             return RedirectToAction("Index");

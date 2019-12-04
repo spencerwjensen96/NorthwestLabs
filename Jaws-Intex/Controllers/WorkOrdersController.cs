@@ -123,6 +123,19 @@ namespace Jaws_Intex.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             WorkOrder workOrder = db.WorkOrders.Find(id);
+            
+            var associatedCompounds = db.Compounds.SqlQuery("SELECT * FROM Compound WHERE OrderId = " + id).ToList<Compound>();
+            workOrder.Compounds = associatedCompounds;
+
+            foreach (var compound in workOrder.Compounds)
+            {
+                var associatedSamples = db.Samples.SqlQuery("SELECT * FROM Sample WHERE CompoundId = " + compound.CompoundId).ToList<Sample>();
+                compound.Samples = associatedSamples;
+            }
+
+            workOrder.Compounds.ToList().ForEach(x => x.Samples.ToList().ForEach(y => db.Samples.Remove(y)));
+
+            workOrder.Compounds.ToList().ForEach(x => db.Compounds.Remove(x));
             db.WorkOrders.Remove(workOrder);
             db.SaveChanges();
             return RedirectToAction("Index");
