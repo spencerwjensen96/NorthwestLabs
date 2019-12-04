@@ -18,5 +18,6 @@ namespace Jaws_Intex.Models
         public Status Status { get; set; }
         [Display(Name = "Status Date")]
         public DateTime StatusDate { get; set; }
+        public string StatusName { get; set; }
     }
 }

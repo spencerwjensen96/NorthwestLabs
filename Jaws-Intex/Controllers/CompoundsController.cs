@@ -36,9 +36,8 @@ namespace Jaws_Intex.Controllers
                 return HttpNotFound();
             }
             var associatedSamples = db.Samples.SqlQuery("SELECT * FROM Sample WHERE CompoundId = " + id).ToList<Sample>();
-        //    var associatedCompoundStatuses = db.CompoundStatuses.SqlQuery("SELECT CS.StatusId, S.Status, CS.StatusDate " +
-          //      "FROM Compound_Status CS INNER JOIN Status S ON S.StatusId = CS.StatusId WHERE CS.CompoundId = " + id).ToList<CompoundStatus>();
-           // compound.CompoundStatuses = associatedCompoundStatuses;
+            var associatedCompoundStatuses = db.CompoundStatuses.SqlQuery("SELECT * FROM Compound_Status INNER JOIN Status ON Status.StatusId = Compound_Status.StatusId WHERE CompoundId = " + id).ToList<CompoundStatus>();
+            compound.CompoundStatuses = associatedCompoundStatuses;
             compound.Samples = associatedSamples;
             return View(compound);
         }

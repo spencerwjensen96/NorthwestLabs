@@ -38,7 +38,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: CompoundStatus/Create
-        public ActionResult Create()
+        public ActionResult Create(int? CompoundId)
         {
             ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "StatusName");
             return View();
@@ -55,7 +55,7 @@ namespace Jaws_Intex.Controllers
             {
                 db.CompoundStatuses.Add(compoundStatus);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Controller = "Compounds", Id = compoundStatus.CompoundId });
             }
 
             ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "StatusName", compoundStatus.StatusId);
@@ -102,16 +102,11 @@ namespace Jaws_Intex.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CompoundStatus compoundStatus = db.CompoundStatuses.Find(id);
-            if (compoundStatus == null)
-            {
-                return HttpNotFound();
-            }
-            return View(compoundStatus);
+            return View();
         }
 
         // POST: CompoundStatus/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
