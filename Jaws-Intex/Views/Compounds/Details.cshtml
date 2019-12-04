@@ -23,7 +23,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderId)
+            @Html.ActionLink(Model.OrderId.ToString(), "Details", new { Controller = "WorkOrders", Id = Model.OrderId })
         </dd>
 
         <dt>
