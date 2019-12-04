@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<Jaws_Intex.Models.Sample>
 
 @{
-    ViewBag.Title = "Samples";
+    ViewBag.Title = "Index";
 }
 
-<h2>Samples</h2>
+<h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
