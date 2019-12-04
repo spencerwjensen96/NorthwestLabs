@@ -15,8 +15,17 @@ namespace Jaws_Intex.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Quote()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Login()
         {
+            ViewBag.LoginMessage = "";
+
             return View();
         }
 
@@ -30,11 +39,20 @@ namespace Jaws_Intex.Controllers
             {
                 FormsAuthentication.SetAuthCookie(email, rememberMe);
 
+                ViewBag.LoginBanner = "test";
+                //ViewBag.LoginBanner = "<div class='alert alert-success' role='alert'>" +
+                //    "<button type='button' class='close' dat-dismiss='alert'>" +
+                //    "x" +
+                //    "</button>" +
+                //    "You have successfully logged in!" +
+                //    "</div>";
+
                 return RedirectToAction("Index", "Home");
 
             }
             else
             {
+                ViewBag.LoginMessage = "Incorrect Email or Password";
                 return View();
             }
         }
