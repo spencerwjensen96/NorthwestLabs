@@ -13,8 +13,10 @@ namespace Jaws_Intex.DAL
 
         public DbSet<Client> Clients { get; set; }
         public DbSet<WorkOrder> WorkOrders { get; set; }
+        public DbSet<WorkOrderStatus> WorkOrderStatuses { get; set; }
         public DbSet<Compound> Compounds { get; set; }
         public DbSet<Sample> Samples { get; set; }
+        public DbSet<Test> Tests { get; set; }
 
     }
 }

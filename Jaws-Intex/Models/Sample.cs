@@ -13,15 +13,18 @@ namespace Jaws_Intex.Models
         [Key]
         public int SampleId { get; set; }
 
+        [ForeignKey("Compound")]
         [Display(Name = "Compound ID")]
         [Required]
         public int CompoundId { get; set; }
+
+        public virtual Compound Compound { get; set; }
 
         [Display(Name = "Sequence")]
         [Required]
         public int Sequence { get; set; }
 
-        [Display(Name = "Test ID")]
+        [Display(Name = "Test Id")]
         [Required]
         public int TestId { get; set; }
 
@@ -30,19 +33,19 @@ namespace Jaws_Intex.Models
         public string Concentration { get; set; }
 
         [Display(Name = "Absorption")]
-        public string Absorption { get; set; }
+        public decimal? Absorption { get; set; }
 
         [Display(Name = "Quantity")]
         public string Quantity { get; set; }
 
         [Display(Name = "Total Cost")]
-        public decimal TotalCost { get; set; }
+        public decimal? TotalCost { get; set; }
 
         [Display(Name = "Start Date")]
-        public string StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         [Display(Name = "End Date")]
-        public string EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         [Display(Name = "Sample File URL")]
         public string Sample_File_URL { get; set; }

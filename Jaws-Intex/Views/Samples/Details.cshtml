@@ -1,0 +1,98 @@
+﻿@model Jaws_Intex.Models.Sample
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sample</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Compound.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compound.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sequence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sequence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Concentration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Concentration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Absorption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Absorption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sample_File_URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sample_File_URL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SampleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

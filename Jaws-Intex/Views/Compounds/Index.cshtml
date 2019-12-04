@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Jaws_Intex.Models.Compound>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Arrived)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Received_By)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Appearance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reported_Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Molecular_Mass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Max_Tolerated_Dose)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Arrived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Received_By)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Appearance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reported_Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Molecular_Mass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Max_Tolerated_Dose)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CompoundID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CompoundID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CompoundID })
+        </td>
+    </tr>
+}
+
+</table>

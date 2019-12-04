@@ -1,0 +1,98 @@
+﻿@model Jaws_Intex.Models.Compound
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Compound</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Arrived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Arrived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Received_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Received_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Appearance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Appearance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reported_Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reported_Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Molecular_Mass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Molecular_Mass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Max_Tolerated_Dose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Max_Tolerated_Dose)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CompoundID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

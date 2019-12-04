@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Jaws_Intex.Models
 {
-    [Table("WorkOrder")]
+    [Table("Work_Order")]
     public class WorkOrder
     {
         [Key]
@@ -18,20 +18,24 @@ namespace Jaws_Intex.Models
         [Required(ErrorMessage = "Order Date is required")]
         [RegularExpression(@"(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$", 
             ErrorMessage ="The date must be entered as MM/DD/YYYY")]
-        public string Order_Date { get; set; }
+        public DateTime Order_Date { get; set; }
 
         [Display(Name = "Quoted Price")]
-        public float Quoted_Price { get; set; }
+        public decimal Quoted_Price { get; set; }
 
         [Display(Name = "Amount Due")]
-        public float Amount_Due { get; set; }
+        public decimal Amount_Due { get; set; }
 
-        [Display(Name = "Status ID")]
+        [Display(Name = "Status")]
+        [ForeignKey("WorkOrderStatus")]
         public int StatusId { get; set; }
+        public virtual WorkOrderStatus WorkOrderStatus { get; set; }
 
-        [Display(Name = "Client ID")]
-        [Required(ErrorMessage = "Client ID is required")]
+        [Display(Name = "Client")]
+        [Required(ErrorMessage = "Client is required")]
+        [ForeignKey("Client")]
         public int ClientId { get; set; }
+        public virtual Client Client { get; set; }
 
         [Display(Name = "Data Report")]
         public string Data_Report_URL { get; set; }
@@ -40,6 +44,7 @@ namespace Jaws_Intex.Models
         public string Summary_Report_URL { get; set; }
 
         [Display(Name = "Discount")]
-        public float Discount_Percent { get; set; }
+        public decimal? Discount_Percent { get; set; }
+
     }
 }

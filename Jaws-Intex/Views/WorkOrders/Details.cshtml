@@ -1,0 +1,82 @@
+﻿@model Jaws_Intex.Models.WorkOrder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WorkOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.Company)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkOrderStatus.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkOrderStatus.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quoted_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quoted_Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount_Due)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount_Due)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_Report_URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_Report_URL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary_Report_URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary_Report_URL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount_Percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount_Percent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

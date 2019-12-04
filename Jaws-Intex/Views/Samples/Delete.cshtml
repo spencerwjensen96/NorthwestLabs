@@ -1,0 +1,104 @@
+﻿@model Jaws_Intex.Models.Sample
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Sample</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Compound.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compound.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sequence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sequence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Concentration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Concentration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Absorption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Absorption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sample_File_URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sample_File_URL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

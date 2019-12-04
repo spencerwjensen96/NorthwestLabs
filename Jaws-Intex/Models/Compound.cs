@@ -29,7 +29,7 @@ namespace Jaws_Intex.Models
         public decimal Quantity { get; set; }
 
         [Display(Name = "Date Arrived")]
-        public string Date_Arrived { get; set; }
+        public DateTime Date_Arrived { get; set; }
 
         [Display(Name = "Received By")]
         public string Received_By { get; set; }
