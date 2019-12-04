@@ -3,17 +3,17 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<h2>Administrator Login</h2>
 
 @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-group"}))
 {
-<label for="inputEmail">Email address</label>
-@Html.TextBox("Email address", null, null, new { @class = "form-control"})
+<label for="inputEmail">User name</label>
+@Html.TextBox("username", null, null, new { @class = "form-control"})
 <br />
 <label for="inputPassword">Password</label>
-@Html.Password("Password", null, new { @class = "form-control"})
+@Html.Password("password", null, new { @class = "form-control"})
 <br />
 <br />
-<button type="submit" class="btn btn-primary">Login</button>
+<button type="submit" class="btn btn-primary">Log in</button>
 <p class="text-danger">@ViewBag.LoginMessage</p>
 }

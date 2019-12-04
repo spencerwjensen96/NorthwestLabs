@@ -16,6 +16,7 @@ namespace Jaws_Intex.Controllers
         private NorthwestLabsContext db = new NorthwestLabsContext();
 
         // GET: WorkOrders
+        [Authorize]
         public ActionResult Index()
         {
             var workOrders = db.WorkOrders.Include(w => w.Client).Include(w => w.WorkOrderStatus);
@@ -23,6 +24,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: WorkOrders/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,6 +42,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: WorkOrders/Create
+        [Authorize]
         public ActionResult Create(int? ClientId)
         {
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Company");
@@ -50,6 +53,7 @@ namespace Jaws_Intex.Controllers
         // POST: WorkOrders/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Due,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent,Notes,Confirmation_Sent")] WorkOrder workOrder)
@@ -68,6 +72,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: WorkOrders/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -87,6 +92,7 @@ namespace Jaws_Intex.Controllers
         // POST: WorkOrders/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Due,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent,Notes,Confirmation_Sent")] WorkOrder workOrder)
@@ -103,6 +109,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: WorkOrders/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -118,6 +125,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // POST: WorkOrders/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
