@@ -15,8 +15,11 @@ namespace Jaws_Intex.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
+            Viewbag.LoginMessage = "";
+
             return View();
         }
 
@@ -35,6 +38,7 @@ namespace Jaws_Intex.Controllers
             }
             else
             {
+                ViewBag.LoginMessage = "Incorrect Email or Password";
                 return View();
             }
         }
