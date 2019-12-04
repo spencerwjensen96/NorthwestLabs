@@ -12,7 +12,11 @@ namespace Jaws_Intex.Models
     {
         [Key]
         public int Id { get; set; }
-        public int Status { get; set; }
+        public int CompoundId { get; set; }
+        [ForeignKey("Status")]
+        public int StatusId { get; set; }
+        public Status Status { get; set; }
+        [Display(Name = "Status Date")]
         public DateTime StatusDate { get; set; }
     }
 }
