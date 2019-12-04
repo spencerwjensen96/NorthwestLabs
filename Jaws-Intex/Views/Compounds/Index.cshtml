@@ -12,7 +12,7 @@
             @Html.DisplayNameFor(model => model.LT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OrderID)
+            @Html.DisplayNameFor(model => model.OrderId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -38,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.LT)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.OrderID)
+            @Html.DisplayFor(modelItem => item.OrderId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -56,9 +56,9 @@
             @Html.DisplayFor(modelItem => item.Due_Date)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CompoundID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.CompoundID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CompoundID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.CompoundId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CompoundId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CompoundId })
         </td>
     </tr>
 }

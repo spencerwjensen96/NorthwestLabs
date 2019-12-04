@@ -12,13 +12,13 @@ namespace Jaws_Intex.Models
     {
         [Key]
         [Display(Name = "Compound ID")]
-        public int CompoundID { get; set; }
+        public int CompoundId { get; set; }
 
         [Display(Name = "LT")]
         public int LT { get; set; }
 
         [Display(Name = "Order ID")]
-        public int OrderID { get; set; }
+        public int OrderId { get; set; }
 
         [Required(ErrorMessage = "Please enter the Compound Name")]
         [Display(Name = "Name")]

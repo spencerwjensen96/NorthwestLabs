@@ -40,7 +40,7 @@ namespace Jaws_Intex.Controllers
         // GET: Samples/Create
         public ActionResult Create()
         {
-            ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundID", "Name");
+            ViewBag.CompoundId = new SelectList(db.Compounds, "CompoundId", "Name");
             return View();
         }
 

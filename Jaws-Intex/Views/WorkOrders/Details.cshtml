@@ -99,7 +99,7 @@
 <hr />
 <h4>Associated Compounds</h4>
 <p>
-    @Html.ActionLink("Create New Compound for Work Order", "Create", new { Controller = "Compounds", OrderID = Model.OrderId})
+    @Html.ActionLink("Create New Compound for Work Order", "Create", new { Controller = "Compounds", OrderId = Model.OrderId})
 </p>
 <table class="table">
     <tr>
@@ -131,7 +131,7 @@
                 @Html.DisplayFor(modelItem => item.LT)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OrderID)
+                @Html.DisplayFor(modelItem => item.OrderId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -146,9 +146,9 @@
                 @Html.DisplayFor(modelItem => item.Appearance)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CompoundID, Controller = "Compounds" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CompoundID, Controller = "Compounds" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CompoundID, Controller = "Compounds" })
+                @Html.ActionLink("Edit", "Edit", new { id = item.CompoundId, Controller = "Compounds" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CompoundId, Controller = "Compounds" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CompoundId, Controller = "Compounds" })
             </td>
         </tr>
     }

@@ -19,11 +19,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderID)
+            @Html.DisplayNameFor(model => model.OrderId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderID)
+            @Html.DisplayFor(model => model.OrderId)
         </dd>
 
         <dt>
@@ -101,13 +101,13 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CompoundID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CompoundId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
 <hr />
 <h4>Associated Samples</h4>
 <p>
-    @Html.ActionLink("Create New Sample for Compound", "Create", new { Controller = "Samples", CompoundId = Model.CompoundID })
+    @Html.ActionLink("Create New Sample for Compound", "Create", new { Controller = "Samples", CompoundId = Model.CompoundId })
 </p>
 <table class="table">
     <tr>
