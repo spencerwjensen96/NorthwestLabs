@@ -50,6 +50,7 @@ namespace Jaws_Intex.Models
         public DateTime? Due_Date { get; set; }
         
         public ICollection<Sample> Samples { get; set; }
+        public ICollection<CompoundStatus> CompoundStatuses { get; set; }
 
     }
 }
