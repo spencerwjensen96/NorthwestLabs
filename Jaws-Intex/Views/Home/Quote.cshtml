@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Quote";
+}
+
+<h2>Quote</h2>
+
+@using (Html.BeginForm("Quote", "Home", FormMethod.Post, new { @class = "form-group" }))
+{
+    <label for="inputName">Name</label>
+    @Html.TextBox("Name", null, null, new { @class = "form-control" })
+    <br />
+    <label for="inputEmail">Email address</label>
+    @Html.TextBox("Email address", null, null, new { @class = "form-control" })
+    <br />
+    <label for="inputCompound">Compound Name</label>
+    @Html.TextBox("Compound", null, null, new { @class = "form-control" })
+    <br />
+    <label for="inputQuantity">Quantity</label>
+    @Html.TextBox("Quantity", null, null, new { @class = "form-control" })
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+}

@@ -16,6 +16,12 @@ namespace Jaws_Intex.Controllers
         }
 
         [HttpGet]
+        public ActionResult Quote()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Login()
         {
             ViewBag.LoginMessage = "";
@@ -33,12 +39,13 @@ namespace Jaws_Intex.Controllers
             {
                 FormsAuthentication.SetAuthCookie(email, rememberMe);
 
-                ViewBag.LoginBanner = "<div class='alert alert-success' role='alert'>" +
-                    "<button type='button' class='close' dat-dismiss='alert'>" +
-                    "x" +
-                    "</button>" +
-                    "You have successfully logged in!" +
-                    "</div>";
+                ViewBag.LoginBanner = "test";
+                //ViewBag.LoginBanner = "<div class='alert alert-success' role='alert'>" +
+                //    "<button type='button' class='close' dat-dismiss='alert'>" +
+                //    "x" +
+                //    "</button>" +
+                //    "You have successfully logged in!" +
+                //    "</div>";
 
                 return RedirectToAction("Index", "Home");
 
