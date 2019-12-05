@@ -53,7 +53,7 @@ namespace Jaws_Intex.Models
 
         [Display(Name = "State")]
         [Required(ErrorMessage = "State is required")]
-        [RegularExpression(@"^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$", ErrorMessage = "Please US state abbr.")]
+        [RegularExpression(@"^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$", ErrorMessage = "Please use US state abbr.")]
         public string State { get; set; }
 
         [Required(ErrorMessage = "Country is required")]
