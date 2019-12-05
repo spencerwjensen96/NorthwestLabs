@@ -205,6 +205,7 @@
     <Content Include="Views\Charges\Details.cshtml" />
     <Content Include="Views\Charges\Edit.cshtml" />
     <Content Include="Views\Charges\Index.cshtml" />
+    <Content Include="Views\Home\QuoteSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -16,12 +16,17 @@ namespace Jaws_Intex.Controllers
             return View();
         }
 
-        [Authorize]
         [HttpGet]
         public ActionResult Quote()
         {
             return View();
         }
+
+        public ActionResult QuoteSuccess()
+        {
+            return View();
+        }
+
 
         [Authorize]
         [HttpGet]
