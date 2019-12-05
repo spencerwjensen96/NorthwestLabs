@@ -130,6 +130,7 @@
     <Compile Include="Controllers\CompoundsController.cs" />
     <Compile Include="Controllers\CompoundStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KnowledgeBasesController.cs" />
     <Compile Include="Controllers\SamplesController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="DAL\NorthwestLabsContext.cs" />
@@ -183,6 +184,11 @@
     <Content Include="Views\CompoundStatus\Edit.cshtml" />
     <Content Include="Views\CompoundStatus\Index.cshtml" />
     <Content Include="Views\Home\LoggedInIndex.cshtml" />
+    <Content Include="Views\KnowledgeBases\Create.cshtml" />
+    <Content Include="Views\KnowledgeBases\Delete.cshtml" />
+    <Content Include="Views\KnowledgeBases\Details.cshtml" />
+    <Content Include="Views\KnowledgeBases\Edit.cshtml" />
+    <Content Include="Views\KnowledgeBases\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
