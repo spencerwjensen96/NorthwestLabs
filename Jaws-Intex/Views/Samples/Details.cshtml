@@ -9,88 +9,131 @@
 <div>
     <h4>Sample</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Compound.Name)
-        </dt>
+    <div style="display: flex; justify-content: space-between;">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Compound.Name)
+            </dt>
 
-        <dd>
-            @Html.ActionLink(Model.Compound.Name, "Details", new { Controller = "Compounds", Id = Model.Compound.CompoundId })
-        </dd>
+            <dd>
+                @Html.ActionLink(Model.Compound.Name, "Details", new { Controller = "Compounds", Id = Model.Compound.CompoundId })
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sequence)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Sequence)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sequence)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Sequence)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TestId)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Concentration)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TestId)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Concentration)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Concentration)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Absorption)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Concentration)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Absorption)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Absorption)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Absorption)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TotalCost)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalCost)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TotalCost)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.StartDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EndDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Sample_File_URL)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Sample_File_URL)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sample_File_URL)
-        </dt>
+        </dl>
+        <div>
+            <p>
+                @Html.ActionLink("Create New", "Create", new { Controller = "SampleTests", SampleId = Model.SampleId })
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        Sample ID
+                    </th>
+                    <th>
+                        Test Name
+                    </th>
+                    <th>
+                        Cost
+                    </th>
+                    <th>
+                        Reactive
+                    </th>
+                    <th></th>
+                </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sample_File_URL)
-        </dd>
+                @foreach (var item in Model.SampleTests)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sample.SampleId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Test.TestName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Active)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id, Controller = "SampleTests" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id, Controller = "SampleTests" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id, Controller = "SampleTests" })
+                        </td>
+                    </tr>
+                }
 
-    </dl>
+            </table>
+        </div>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.SampleId }) |

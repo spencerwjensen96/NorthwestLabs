@@ -19,7 +19,7 @@ namespace Jaws_Intex.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var samples = db.Samples.Include(s => s.Compound);
+            var samples = db.Samples.Include(s => s.Compound).Include(s => s.SampleTests);
             return View(samples.ToList());
         }
 
@@ -31,7 +31,12 @@ namespace Jaws_Intex.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            SampleTest sampleyo = new SampleTest();
+
             Sample sample = db.Samples.Find(id);
+            var associatedSampleTests = db.SampleTests.SqlQuery("SELECT * FROM Sample_Test WHERE SampleId = " + id).ToList<SampleTest>();
+            sample.SampleTests = associatedSampleTests;
             if (sample == null)
             {
                 return HttpNotFound();

@@ -24,10 +24,6 @@ namespace Jaws_Intex.Models
         [Required]
         public int Sequence { get; set; }
 
-        [Display(Name = "Test Id")]
-        [Required]
-        public int TestId { get; set; }
-
         [Display(Name = "Concentration")]
         [Required]
         public string Concentration { get; set; }
@@ -49,6 +45,8 @@ namespace Jaws_Intex.Models
 
         [Display(Name = "Sample Results URL")]
         public string Sample_File_URL { get; set; }
+
+        public ICollection<SampleTest> SampleTests { get; set; }
 
     }
 }
