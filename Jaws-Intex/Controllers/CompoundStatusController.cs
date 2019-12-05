@@ -17,6 +17,7 @@ namespace Jaws_Intex.Controllers
         private NorthwestLabsContext db = new NorthwestLabsContext();
 
         // GET: CompoundStatus
+        [Authorize]
         public ActionResult Index()
         {
             var compoundStatuses = db.CompoundStatuses.Include(c => c.Status);
@@ -24,6 +25,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: CompoundStatus/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,6 +41,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: CompoundStatus/Create
+        [Authorize]
         public ActionResult Create(int? CompoundId)
         {
             ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "StatusName");
@@ -48,6 +51,7 @@ namespace Jaws_Intex.Controllers
         // POST: CompoundStatus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,CompoundId,StatusId,StatusDate")] CompoundStatus compoundStatus)
@@ -72,6 +76,7 @@ namespace Jaws_Intex.Controllers
             return View(compoundStatus);
         }
 
+        [Authorize]
         public void SendCompoundUpdatedEmail(Client client, Compound compound)
         {
             MailMessage msg = new MailMessage();
@@ -96,6 +101,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: CompoundStatus/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -114,6 +120,7 @@ namespace Jaws_Intex.Controllers
         // POST: CompoundStatus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,CompoundId,StatusId,StatusDate")] CompoundStatus compoundStatus)
@@ -129,6 +136,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: CompoundStatus/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -139,6 +147,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // POST: CompoundStatus/Delete/5
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
