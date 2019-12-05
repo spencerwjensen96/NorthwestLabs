@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChargesController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\CompoundsController.cs" />
     <Compile Include="Controllers\CompoundStatusController.cs" />
@@ -199,6 +200,11 @@
     <Content Include="Views\SampleTests\Details.cshtml" />
     <Content Include="Views\SampleTests\Edit.cshtml" />
     <Content Include="Views\SampleTests\Index.cshtml" />
+    <Content Include="Views\Charges\Create.cshtml" />
+    <Content Include="Views\Charges\Delete.cshtml" />
+    <Content Include="Views\Charges\Details.cshtml" />
+    <Content Include="Views\Charges\Edit.cshtml" />
+    <Content Include="Views\Charges\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

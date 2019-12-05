@@ -21,9 +21,6 @@ namespace Jaws_Intex.Models
         [Display(Name = "Quoted Price")]
         public decimal Quoted_Price { get; set; }
 
-        [Display(Name = "Amount Paid")]
-        public decimal Amount_Paid { get; set; }
-
         [Display(Name = "Status")]
         [ForeignKey("WorkOrderStatus")]
         public int StatusId { get; set; }

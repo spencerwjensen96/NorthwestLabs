@@ -16,7 +16,7 @@ namespace Jaws_Intex.Models
         [Display(Name = "Work Order")]
         [Required]
         [ForeignKey("WorkOrder")]
-        public int WorkOrderId { get; set; }
+        public int OrderId { get; set; }
         public WorkOrder WorkOrder { get; set; }
 
         [Required]

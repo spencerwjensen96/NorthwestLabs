@@ -9,88 +9,142 @@
 <div>
     <h4>Work Order</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Client.Company)
-        </dt>
+    <div style="display: flex; justify-content: space-between;">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Client.Company)
+            </dt>
 
-        <dd>
-            @Html.ActionLink(Model.Client.Company, "Details", new { Controller = "Clients", Id = Model.Client.ClientId})
-        </dd>
+            <dd>
+                @Html.ActionLink(Model.Client.Company, "Details", new { Controller = "Clients", Id = Model.Client.ClientId })
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkOrderStatus.Status)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkOrderStatus.Status)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkOrderStatus.Status)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.WorkOrderStatus.Status)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Order_Date)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Order_Date)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Order_Date)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Order_Date)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Quoted_Price)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Quoted_Price)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Quoted_Price)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Quoted_Price)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Amount_Paid)
-        </dt>
+            <dt>
+                Amount Due
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Amount_Paid)
-        </dd>
+            <dd>
+                @ViewBag.AmountDue
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Data_Report_URL)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Data_Report_URL)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Data_Report_URL)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Data_Report_URL)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Summary_Report_URL)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Summary_Report_URL)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Summary_Report_URL)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Summary_Report_URL)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Discount_Percent)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Discount_Percent)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Discount_Percent)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Discount_Percent)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Notes)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Notes)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Confirmation_Sent)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Confirmation_Sent)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Confirmation_Sent)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Confirmation_Sent)
+            </dd>
 
-    </dl>
+        </dl>
+        <div>
+            <h4>Invoice Breakdown</h4>
+            @if (ViewBag.SampleCosts.Count > 0 || ViewBag.Charges.Count > 0)
+            {
+                <table class="table">
+                    <tr>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Amount
+                        </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var item in ViewBag.SampleCosts)
+                    {
+                        <tr>
+                            <td>
+                                Sample @item.LT - @item.Sequence
+                            </td>
+                            <td>
+                                $@item.Cost
+                            </td>
+                            <td>
+                                @Html.ActionLink("View Sample", "Details", new { Controller = "Samples", id = item.SampleId })
+                            </td>
+                        </tr>
+                    }
+                    @foreach (var item in ViewBag.Charges)
+                    {
+                        <tr>
+                            <td>
+                                @item.Notes
+                            </td>
+                            <td>
+                                $@item.Cost
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ChargeId, Controller = "Charges" }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ChargeId, Controller = "Charges" })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            }
+            <div style="display: flex; justify-content: space-between">
+                @Html.ActionLink("Add Charge/Payment", "Create", new { Controller = "Charges", OrderId = Model.OrderId })
+            </div>
+
+        </div>
+    </div>
+
 </div>
 <p>
     @Html.ActionLink("Edit Work Order", "Edit", new { id = Model.OrderId }) |
@@ -98,7 +152,7 @@
 </p>
 <hr />
 <h4>Associated Compounds</h4>
-    @Html.ActionLink("Create New Compound for Work Order", "Create", new { Controller = "Compounds", OrderId = Model.OrderId})
+@Html.ActionLink("Create New Compound for Work Order", "Create", new { Controller = "Compounds", OrderId = Model.OrderId })
 <table class="table table-hover">
     <tr>
         <th>
@@ -121,33 +175,33 @@
         </th>
         <th></th>
     </tr>
-        @foreach (var item in Model.Compounds)
-        {
-            <tr onclick="location.href = '@Url.Action("Details", null, new { id = item.CompoundId, Controller = "Compounds" })'">
-                <td>
-                    @Html.DisplayFor(modelItem => item.LT)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date_Arrived)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Received_By)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Appearance)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CompoundId, Controller = "Compounds" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CompoundId, Controller = "Compounds" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CompoundId, Controller = "Compounds" })
-                </td>
-            </tr>
-        }
+    @foreach (var item in Model.Compounds)
+    {
+        <tr onclick="location.href = '@Url.Action("Details", null, new { id = item.CompoundId, Controller = "Compounds" })'">
+            <td>
+                @Html.DisplayFor(modelItem => item.LT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Arrived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Received_By)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Appearance)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CompoundId, Controller = "Compounds" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CompoundId, Controller = "Compounds" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CompoundId, Controller = "Compounds" })
+            </td>
+        </tr>
+    }
 </table>
 

@@ -57,6 +57,36 @@ namespace Jaws_Intex.Controllers
             {
                 return HttpNotFound();
             }
+
+            string query = $@"SELECT   
+            C.LT,
+            S.SampleId, S.Sequence,
+            SUM(T.BasePrice + T.MaterialsCost + T.WageEstimate) AS Cost 
+            FROM Work_Order WO 
+            INNER JOIN Compound C ON C.OrderId = WO.OrderId 
+            INNER JOIN Sample S ON S.CompoundId = C.CompoundId 
+            INNER JOIN Sample_Test ST ON S.SampleId = ST.SampleId 
+            INNER JOIN Test T ON T.TestId = ST.TestId 
+            WHERE WO.OrderId = {workOrder.OrderId}
+            GROUP BY S.SampleId, C.LT, S.Sequence";
+
+            var sampleTotalCostList = db.Database.SqlQuery<SampleCost>(query).ToList<SampleCost>();
+            ViewBag.SampleCosts = sampleTotalCostList;
+
+            var chargesList = db.Charges.SqlQuery("SELECT * FROM Charge WHERE OrderId = " + workOrder.OrderId).ToList<Charge>();
+            ViewBag.Charges = chargesList;
+
+            decimal amountDue = 0;
+            foreach(var item in sampleTotalCostList)
+            {
+                amountDue += item.Cost;
+            }
+            foreach (var item in chargesList)
+            {
+                amountDue += item.Cost;
+            }
+            ViewBag.AmountDue = amountDue;
+
             var associatedCompounds = db.Compounds.SqlQuery("SELECT * FROM Compound WHERE OrderId = " + id).ToList<Compound>();
             workOrder.Compounds = associatedCompounds;
             return View(workOrder);
