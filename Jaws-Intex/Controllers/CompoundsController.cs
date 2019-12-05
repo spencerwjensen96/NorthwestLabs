@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Jaws_Intex.DAL;
@@ -14,6 +15,7 @@ namespace Jaws_Intex.Controllers
     public class CompoundsController : Controller
     {
         private NorthwestLabsContext db = new NorthwestLabsContext();
+
 
         // GET: Compounds
         [Authorize]
