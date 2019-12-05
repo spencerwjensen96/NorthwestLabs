@@ -47,7 +47,7 @@ namespace Jaws_Intex.Controllers
                 //    "You have successfully logged in!" +
                 //    "</div>";
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("LoggedInIndex", "Home");
 
             }
             else
@@ -55,6 +55,11 @@ namespace Jaws_Intex.Controllers
                 ViewBag.LoginMessage = "Incorrect username or password";
                 return View();
             }
+        }
+
+        public ActionResult LoggedInIndex()
+        {
+            return View();
         }
     }
 }

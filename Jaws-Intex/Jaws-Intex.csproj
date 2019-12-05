@@ -180,6 +180,7 @@
     <Content Include="Views\CompoundStatus\Details.cshtml" />
     <Content Include="Views\CompoundStatus\Edit.cshtml" />
     <Content Include="Views\CompoundStatus\Index.cshtml" />
+    <Content Include="Views\Home\LoggedInIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
