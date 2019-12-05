@@ -32,9 +32,30 @@ namespace Jaws_Intex.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            SampleTest sampleyo = new SampleTest();
 
             Sample sample = db.Samples.Find(id);
+
+            string query = $@"SELECT 
+            S.SampleId,
+            SUM(T.BasePrice + T.MaterialsCost + T.WageEstimate) AS Cost
+            FROM Work_Order WO
+            INNER JOIN Compound C ON C.OrderId = WO.OrderId
+            INNER JOIN Sample S ON S.CompoundId = C.CompoundId
+            INNER JOIN Sample_Test ST ON S.SampleId = ST.SampleId
+            INNER JOIN Test T ON T.TestId = ST.TestId
+            WHERE S.SampleId = {sample.SampleId}
+            GROUP BY S.SampleId";
+
+            string sampleTotalCost;
+            var sampleTotalCostList = db.Database.SqlQuery<SampleCost>(query).ToList<SampleCost>();
+                if (sampleTotalCostList.Count > 0)
+            {
+                sampleTotalCost = sampleTotalCostList[0].Cost.ToString();
+            } else
+            {
+                sampleTotalCost = "No associated tests found";
+            }
+            ViewBag.TotalCost = sampleTotalCost;
             var associatedSampleTests = db.SampleTests.SqlQuery("SELECT * FROM Sample_Test WHERE SampleId = " + id).ToList<SampleTest>();
             sample.SampleTests = associatedSampleTests;
             if (sample == null)

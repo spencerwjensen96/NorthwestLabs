@@ -147,6 +147,7 @@
     <Compile Include="Models\SampleTest.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\SampleCost.cs" />
     <Compile Include="Models\WorkOrder.cs" />
     <Compile Include="Models\WorkOrderStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
