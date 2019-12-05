@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Client.Company)
@@ -37,39 +37,40 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Client.Company)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WorkOrderStatus.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Order_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quoted_Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount_Due)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data_Report_URL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Summary_Report_URL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Discount_Percent)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrderId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrderId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrderId })
-        </td>
-    </tr>
-}
-
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr onclick="location.href = '@Url.Action("Details", null, new { id = item.OrderId, Controller = "WorkOrders" })'">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkOrderStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quoted_Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount_Due)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_Report_URL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Summary_Report_URL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount_Percent)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OrderId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.OrderId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
