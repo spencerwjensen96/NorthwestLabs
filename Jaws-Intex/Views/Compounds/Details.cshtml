@@ -148,9 +148,6 @@
             Sequence
         </th>
         <th>
-            Test
-        </th>
-        <th>
             Concentration
         </th>
         <th>
@@ -179,9 +176,6 @@
             <tr onclick="location.href = '@Url.Action("Details", null, new { id = item.SampleId, Controller = "Samples" })'">
                 <td>
                     @Html.DisplayFor(modelItem => item.Sequence)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TestId)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Concentration)
