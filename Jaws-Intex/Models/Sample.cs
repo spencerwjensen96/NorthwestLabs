@@ -24,14 +24,14 @@ namespace Jaws_Intex.Models
         [Required]
         public int Sequence { get; set; }
 
-        [Display(Name = "Concentration")]
+        [Display(Name = "Concentration (mg/mL)")]
         [Required]
         public string Concentration { get; set; }
 
         [Display(Name = "Absorption")]
         public decimal? Absorption { get; set; }
 
-        [Display(Name = "Quantity")]
+        [Display(Name = "Quantity (mg)")]
         public string Quantity { get; set; }
 
         [Display(Name = "Start Date")]

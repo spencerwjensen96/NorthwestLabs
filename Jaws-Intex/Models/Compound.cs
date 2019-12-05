@@ -25,7 +25,7 @@ namespace Jaws_Intex.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Please enter the Compound Quantity")]
-        [Display(Name = "Quantity")]
+        [Display(Name = "Quantity (mg)")]
         public decimal Quantity { get; set; }
 
         [Display(Name = "Date Arrived")]
@@ -37,13 +37,13 @@ namespace Jaws_Intex.Models
         [Display(Name = "Appearance")]
         public string Appearance { get; set; }
 
-        [Display(Name = "Reported Weight")]
+        [Display(Name = "Reported Weight (mg)")]
         public decimal Reported_Weight { get; set; }
 
         [Display(Name = "Molecular Mass")]
         public decimal Molecular_Mass { get; set; }
 
-        [Display(Name = "Max Tolerated Dose")]
+        [Display(Name = "Max Tolerated Dose (mg)")]
         public decimal Max_Tolerated_Dose { get; set; }
 
         [Display(Name = "Due Date")]

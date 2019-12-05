@@ -77,7 +77,7 @@ namespace Jaws_Intex.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Due,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent,Notes,Confirmation_Sent")] WorkOrder workOrder)
+        public ActionResult Create([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Paid,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent,Notes,Confirmation_Sent")] WorkOrder workOrder)
         {
             if (ModelState.IsValid)
             {
@@ -116,7 +116,7 @@ namespace Jaws_Intex.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Due,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent,Notes,Confirmation_Sent")] WorkOrder workOrder)
+        public ActionResult Edit([Bind(Include = "OrderId,Order_Date,Quoted_Price,Amount_Paid,StatusId,ClientId,Data_Report_URL,Summary_Report_URL,Discount_Percent,Notes,Confirmation_Sent")] WorkOrder workOrder)
         {
             if (ModelState.IsValid)
             {
