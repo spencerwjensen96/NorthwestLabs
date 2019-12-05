@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Jaws_Intex.DAL;
@@ -53,13 +54,44 @@ namespace Jaws_Intex.Controllers
         {
             if (ModelState.IsValid)
             {
+                compoundStatus.StatusName = null;
+                //db.CompoundStatuses.SqlQuery("INSERT INTO Compound_Status (StatusId, CompoundId, StatusDate) VALUES ('" + compoundStatus.StatusId + "', '" + compoundStatus.CompoundId + "', '" + compoundStatus.StatusDate + "')").S;
                 db.CompoundStatuses.Add(compoundStatus);
+               var associatedClient = db.Clients.SqlQuery(@"SELECT TOP 1 Client.* FROM Compound CD
+                    INNER JOIN Work_Order WO ON WO.OrderId = CD.OrderId
+                    INNER JOIN Client ON Client.ClientId = WO.ClientId
+                    WHERE CD.CompoundId = " + compoundStatus.CompoundId).ToList<Client>()[0];
+                var associatedCompound = db.Compounds.SqlQuery("SELECT TOP 1 * FROM Compound WHERE CompoundId = " + compoundStatus.CompoundId).ToList<Compound>()[0];
+                SendCompoundUpdatedEmail(associatedClient, associatedCompound);
                 db.SaveChanges();
                 return RedirectToAction("Details", new { Controller = "Compounds", Id = compoundStatus.CompoundId });
             }
 
             ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "StatusName", compoundStatus.StatusId);
             return View(compoundStatus);
+        }
+
+        public void SendCompoundUpdatedEmail(Client client, Compound compound)
+        {
+            MailMessage msg = new MailMessage();
+            System.Net.Mail.SmtpClient mailClient = new System.Net.Mail.SmtpClient();
+            msg.Subject = "Compound Updated";
+            msg.Body = "Your compound " + compound.Name + ", has been updated.";
+            msg.From = new MailAddress("smtpserverforis403@gmail.com");
+            msg.To.Add(client.Email_1);
+            if (client.Email_2 != null)
+            {
+                msg.To.Add(client.Email_2);
+            }
+            msg.IsBodyHtml = true;
+            mailClient.Host = "smtp.gmail.com";
+            System.Net.NetworkCredential basicauthenticationinfo = new System.Net.NetworkCredential("smtpserverforis403@gmail.com", "cactuscooler");
+            mailClient.Port = 587;
+            mailClient.EnableSsl = true;
+            mailClient.UseDefaultCredentials = false;
+            mailClient.Credentials = basicauthenticationinfo;
+            mailClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            mailClient.Send(msg);
         }
 
         // GET: CompoundStatus/Edit/5

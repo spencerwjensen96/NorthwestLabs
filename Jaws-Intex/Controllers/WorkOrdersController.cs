@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Jaws_Intex.DAL;
@@ -14,6 +15,26 @@ namespace Jaws_Intex.Controllers
     public class WorkOrdersController : Controller
     {
         private NorthwestLabsContext db = new NorthwestLabsContext();
+
+        public void SendWorkOrderUpdatedEmail(Client client, WorkOrder workOrder)
+        {
+            MailMessage msg = new MailMessage();
+            System.Net.Mail.SmtpClient mailClient = new System.Net.Mail.SmtpClient();
+            msg.Subject = "Work Order Updated";
+            msg.Body = "Your work order #" + workOrder.OrderId + ", has been updated.";
+            msg.From = new MailAddress("smtpserverforis403@gmail.com");
+            msg.To.Add(client.Email_1);
+            if (client.Email_2 != null) { msg.To.Add(client.Email_2); }
+            msg.IsBodyHtml = true;
+            mailClient.Host = "smtp.gmail.com";
+            System.Net.NetworkCredential basicauthenticationinfo = new System.Net.NetworkCredential("smtpserverforis403@gmail.com", "cactuscooler");
+            mailClient.Port = 587;
+            mailClient.EnableSsl = true;
+            mailClient.UseDefaultCredentials = false;
+            mailClient.Credentials = basicauthenticationinfo;
+            mailClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            mailClient.Send(msg);
+        }
 
         // GET: WorkOrders
         [Authorize]
@@ -101,6 +122,8 @@ namespace Jaws_Intex.Controllers
             {
                 db.Entry(workOrder).State = EntityState.Modified;
                 db.SaveChanges();
+                var associatedClient = db.Clients.SqlQuery("SELECT TOP 1 * FROM Client WHERE ClientId = " + workOrder.ClientId).ToList<Client>()[0];
+                SendWorkOrderUpdatedEmail(associatedClient, workOrder);
                 return RedirectToAction("Details/" + workOrder.OrderId);
             }
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Company", workOrder.ClientId);
