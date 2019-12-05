@@ -13,23 +13,18 @@ namespace Jaws_Intex.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         [ForeignKey("Sample")]
-        [Required(ErrorMessage = "Sample is required")]
         public int SampleId { get; set; }
         public virtual Sample Sample { get; set; }
 
+        [Required]
         [ForeignKey("Test")]
-        [Required(ErrorMessage = "Test is required")]
         public int TestId { get; set; }
         public virtual Test Test { get; set; }
-        
-        [Display(Name = "Cost")]
-        public decimal Cost { get; set; }
 
-        [Display(Name = "Notes")]
         public string Notes { get; set; }
 
-        [Display(Name = "Active")]
         public Boolean Active { get; set; }
 
     }

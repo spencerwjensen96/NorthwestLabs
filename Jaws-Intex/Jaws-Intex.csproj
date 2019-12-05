@@ -187,16 +187,16 @@
     <Content Include="Views\CompoundStatus\Edit.cshtml" />
     <Content Include="Views\CompoundStatus\Index.cshtml" />
     <Content Include="Views\Home\LoggedInIndex.cshtml" />
-    <Content Include="Views\SampleTests\Create.cshtml" />
-    <Content Include="Views\SampleTests\Delete.cshtml" />
-    <Content Include="Views\SampleTests\Details.cshtml" />
-    <Content Include="Views\SampleTests\Edit.cshtml" />
-    <Content Include="Views\SampleTests\Index.cshtml" />
     <Content Include="Views\KnowledgeBases\Create.cshtml" />
     <Content Include="Views\KnowledgeBases\Delete.cshtml" />
     <Content Include="Views\KnowledgeBases\Details.cshtml" />
     <Content Include="Views\KnowledgeBases\Edit.cshtml" />
     <Content Include="Views\KnowledgeBases\Index.cshtml" />
+    <Content Include="Views\SampleTests\Create.cshtml" />
+    <Content Include="Views\SampleTests\Delete.cshtml" />
+    <Content Include="Views\SampleTests\Details.cshtml" />
+    <Content Include="Views\SampleTests\Edit.cshtml" />
+    <Content Include="Views\SampleTests\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

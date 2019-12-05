@@ -16,7 +16,7 @@ namespace Jaws_Intex.Controllers
         private NorthwestLabsContext db = new NorthwestLabsContext();
 
         // GET: SampleTests
-        public ActionResult Index()
+        public ActionResult Index(int? SampleId)
         {
             var sampleTests = db.SampleTests.Include(s => s.Sample).Include(s => s.Test);
             return View(sampleTests.ToList());
@@ -50,7 +50,7 @@ namespace Jaws_Intex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,SampleId,TestId,Cost,Notes,Active")] SampleTest sampleTest)
+        public ActionResult Create([Bind(Include = "Id,SampleId,TestId,Notes,Active")] SampleTest sampleTest)
         {
             if (ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace Jaws_Intex.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SampleId = new SelectList(db.Samples, "SampleId", "Concentration", sampleTest.SampleId);
+            ViewBag.SampleId = new SelectList(db.Samples, "SampleId", "SampleId", sampleTest.SampleId);
             ViewBag.TestId = new SelectList(db.Tests, "TestId", "TestName", sampleTest.TestId);
             return View(sampleTest);
         }
@@ -86,7 +86,7 @@ namespace Jaws_Intex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,SampleId,TestId,Cost,Notes,Active")] SampleTest sampleTest)
+        public ActionResult Edit([Bind(Include = "Id,SampleId,TestId,Notes,Active")] SampleTest sampleTest)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace Jaws_Intex.Controllers
                 db.SaveChanges();
                 return Redirect("/Samples/Details/" + sampleTest.SampleId);
             }
-            ViewBag.SampleId = new SelectList(db.Samples, "SampleId", "Concentration", sampleTest.SampleId);
+            ViewBag.SampleId = new SelectList(db.Samples, "SampleId", "SampleId", sampleTest.SampleId);
             ViewBag.TestId = new SelectList(db.Tests, "TestId", "TestName", sampleTest.TestId);
             return View(sampleTest);
         }

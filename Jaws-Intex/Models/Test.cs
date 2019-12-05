@@ -24,7 +24,20 @@ namespace Jaws_Intex.Models
 
         public Boolean ConditionalTest { get; set; }
 
-        public decimal BasePrice { get; set; }
+        [Display(Name = "Base Price")]
+        public decimal? BasePrice { get; set; }
+
+        [Display(Name = "Materials Cost")]
+        public decimal? MaterialsCost { get; set; }
+
+        [Display(Name = "Wage")]
+        public decimal? WageEstimate { get; set; }
+
+        [Display(Name = "Quantity in Stock")]
+        public int? QtyInStock { get; set; }
+             
+
+    
 
 
     }

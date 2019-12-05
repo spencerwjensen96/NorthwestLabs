@@ -7,15 +7,15 @@
 <h2>Details</h2>
 
 <div>
-    <h4>SampleTest</h4>
+    <h4>Sample Test</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Sample.Concentration)
+            @Html.DisplayNameFor(model => model.Sample.Sequence)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sample.Concentration)
+            @Html.DisplayFor(model => model.Sample.Sequence)
         </dd>
 
         <dt>
@@ -24,14 +24,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Test.TestName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cost)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cost)
         </dd>
 
         <dt>
@@ -54,5 +46,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Sample", "Details", new { Controller = "Samples", id = Model.SampleId })
 </p>

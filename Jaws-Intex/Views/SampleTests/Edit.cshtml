@@ -17,7 +17,7 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SampleId, "SampleId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SampleId, "Sample", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("SampleId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SampleId, "", new { @class = "text-danger" })
@@ -25,18 +25,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TestId, "TestId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TestId, "Test", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("TestId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.TestId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -66,6 +58,6 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @(Html.ActionLink("Back to Sample", "Details", new { Controller = "Samples", id = Model.SampleId }))
+    </div>

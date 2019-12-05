@@ -34,9 +34,6 @@ namespace Jaws_Intex.Models
         [Display(Name = "Quantity")]
         public string Quantity { get; set; }
 
-        [Display(Name = "Total Cost")]
-        public decimal? TotalCost { get; set; }
-
         [Display(Name = "Start Date")]
         public DateTime? StartDate { get; set; }
 
