@@ -98,9 +98,7 @@
 </p>
 <hr />
 <h4>Associated Compounds</h4>
-<p>
     @Html.ActionLink("Create New Compound for Work Order", "Create", new { Controller = "Compounds", OrderId = Model.OrderId})
-</p>
 <table class="table table-hover">
     <tr>
         <th>
@@ -123,7 +121,6 @@
         </th>
         <th></th>
     </tr>
-    <>
         @foreach (var item in Model.Compounds)
         {
             <tr onclick="location.href = '@Url.Action("Details", null, new { id = item.CompoundId, Controller = "Compounds" })'">
@@ -152,6 +149,5 @@
                 </td>
             </tr>
         }
-    </tbody>
 </table>
 

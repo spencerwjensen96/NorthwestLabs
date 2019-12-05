@@ -54,16 +54,17 @@ namespace Jaws_Intex.Controllers
         {
             if (ModelState.IsValid)
             {
-                compoundStatus.StatusName = null;
-                //db.CompoundStatuses.SqlQuery("INSERT INTO Compound_Status (StatusId, CompoundId, StatusDate) VALUES ('" + compoundStatus.StatusId + "', '" + compoundStatus.CompoundId + "', '" + compoundStatus.StatusDate + "')").S;
-                db.CompoundStatuses.Add(compoundStatus);
+                db.Database.ExecuteSqlCommand(
+                    $"INSERT INTO Compound_Status (StatusId, CompoundId, StatusDate) " +
+                    $"VALUES ({compoundStatus.StatusId}, {compoundStatus.CompoundId}, '{compoundStatus.StatusDate}')");
+                //db.CompoundStatuses.Add(compoundStatus);
                var associatedClient = db.Clients.SqlQuery(@"SELECT TOP 1 Client.* FROM Compound CD
                     INNER JOIN Work_Order WO ON WO.OrderId = CD.OrderId
                     INNER JOIN Client ON Client.ClientId = WO.ClientId
                     WHERE CD.CompoundId = " + compoundStatus.CompoundId).ToList<Client>()[0];
                 var associatedCompound = db.Compounds.SqlQuery("SELECT TOP 1 * FROM Compound WHERE CompoundId = " + compoundStatus.CompoundId).ToList<Compound>()[0];
                 SendCompoundUpdatedEmail(associatedClient, associatedCompound);
-                db.SaveChanges();
+                //db.SaveChanges();
                 return RedirectToAction("Details", new { Controller = "Compounds", Id = compoundStatus.CompoundId });
             }
 
