@@ -199,6 +199,7 @@
     <Content Include="Views\SampleTests\Details.cshtml" />
     <Content Include="Views\SampleTests\Edit.cshtml" />
     <Content Include="Views\SampleTests\Index.cshtml" />
+    <Content Include="Views\Home\QuoteSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
