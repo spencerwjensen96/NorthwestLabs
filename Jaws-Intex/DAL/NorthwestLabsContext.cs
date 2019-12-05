@@ -21,5 +21,6 @@ namespace Jaws_Intex.DAL
         public DbSet<Status> Statuses { get; set; }
         public DbSet<SampleTest> SampleTests { get; set; }
         public DbSet<Charge> Charges { get; set; }
+        public DbSet<KnowledgeBase> knowledgeBases { get; set; }
     }
 }

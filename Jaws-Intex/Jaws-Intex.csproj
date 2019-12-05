@@ -130,6 +130,7 @@
     <Compile Include="Controllers\CompoundsController.cs" />
     <Compile Include="Controllers\CompoundStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KnowledgeBasesController.cs" />
     <Compile Include="Controllers\SamplesController.cs" />
     <Compile Include="Controllers\SampleTestsController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Compound.cs" />
     <Compile Include="Models\CompoundStatus.cs" />
+    <Compile Include="Models\KnowledgeBase.cs" />
     <Compile Include="Models\Sample.cs" />
     <Compile Include="Models\SampleTest.cs" />
     <Compile Include="Models\Status.cs" />
@@ -190,6 +192,11 @@
     <Content Include="Views\SampleTests\Details.cshtml" />
     <Content Include="Views\SampleTests\Edit.cshtml" />
     <Content Include="Views\SampleTests\Index.cshtml" />
+    <Content Include="Views\KnowledgeBases\Create.cshtml" />
+    <Content Include="Views\KnowledgeBases\Delete.cshtml" />
+    <Content Include="Views\KnowledgeBases\Details.cshtml" />
+    <Content Include="Views\KnowledgeBases\Edit.cshtml" />
+    <Content Include="Views\KnowledgeBases\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
