@@ -10,17 +10,20 @@ namespace Jaws_Intex.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Quote()
         {
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Login()
         {
@@ -29,6 +32,7 @@ namespace Jaws_Intex.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Login(FormCollection form, bool rememberMe = false)
         {
@@ -57,6 +61,7 @@ namespace Jaws_Intex.Controllers
             }
         }
 
+        [Authorize]
         public ActionResult LoggedInIndex()
         {
             return View();
