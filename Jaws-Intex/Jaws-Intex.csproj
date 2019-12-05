@@ -99,6 +99,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\14464923841535782590-128.png" />
+    <Content Include="Content\Images\17074652251529659197-128.png" />
+    <Content Include="Content\Images\8919402731529659193-128.png" />
     <Content Include="Content\Images\labflasks.jpg" />
     <Content Include="Content\Images\northwestlabs.png" />
     <Content Include="Content\Site.css" />
