@@ -6,7 +6,7 @@
 
 <h2>Samples</h2>
 
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Compound.Name)
@@ -40,45 +40,47 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Compound.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sequence)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TestId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Concentration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Absorption)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sample_File_URL)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SampleId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SampleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SampleId })
-        </td>
-    </tr>
-}
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Compound.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sequence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Concentration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Absorption)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sample_File_URL)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SampleId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.SampleId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SampleId })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
