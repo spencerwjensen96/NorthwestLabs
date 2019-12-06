@@ -16,6 +16,7 @@ namespace Jaws_Intex.Controllers
     {
         private NorthwestLabsContext db = new NorthwestLabsContext();
 
+        [Authorize]
         public void SendWorkOrderUpdatedEmail(Client client, WorkOrder workOrder)
         {
             MailMessage msg = new MailMessage();
