@@ -127,6 +127,7 @@ namespace Jaws_Intex.Controllers
         {
             Compound compound = db.Compounds.Find(id);
             var associatedSamples = db.Samples.SqlQuery("SELECT * FROM Sample WHERE CompoundId = " + id).ToList<Sample>();
+            associatedSamples.ForEach(sample => db.Database.ExecuteSqlCommand("DELETE FROM Sample_Test WHERE SampleId = " + sample.SampleId));
             compound.Samples = associatedSamples;
             compound.Samples.ToList().ForEach(x => db.Samples.Remove(x));
 

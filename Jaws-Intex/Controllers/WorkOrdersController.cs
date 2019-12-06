@@ -209,10 +209,11 @@ namespace Jaws_Intex.Controllers
             foreach (var compound in workOrder.Compounds)
             {
                 var associatedSamples = db.Samples.SqlQuery("SELECT * FROM Sample WHERE CompoundId = " + compound.CompoundId).ToList<Sample>();
+                associatedSamples.ForEach(sample => db.Database.ExecuteSqlCommand("DELETE FROM Sample_Test WHERE SampleId = " + sample.SampleId));
                 compound.Samples = associatedSamples;
                 db.CompoundStatuses.SqlQuery("DELETE FROM Compound_Status WHERE CompoundId = " + compound.CompoundId);
-
             }
+           
 
             workOrder.Compounds.ToList().ForEach(x => x.Samples.ToList().ForEach(y => db.Samples.Remove(y)));
 
