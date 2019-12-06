@@ -149,7 +149,7 @@
                 </table>
             }
             <div style="display: flex; justify-content: space-between">
-                @Html.ActionLink("Add Charge/Payment", "Create", new { Controller = "Charges", OrderId = Model.OrderId })
+                @Html.ActionLink("Add Charge/Payment", "Create", new { Controller = "Charges", OrderId = Model.OrderId }, new { @class = "btn btn-info" })
             </div>
 
         </div>
@@ -157,12 +157,12 @@
 
 </div>
 <p>
-    @Html.ActionLink("Edit Work Order", "Edit", new { id = Model.OrderId }) |
-    @Html.ActionLink("Back to List of Work Orders", "Index")
+    @Html.ActionLink("Edit Work Order", "Edit", new { id = Model.OrderId }, new { @class = "btn btn-info", @style = "margin-right:10px" })
+    @Html.ActionLink("Back to List of Work Orders", "Index", null, new { @class = "btn btn-info" })
 </p>
 <hr />
 <h4>Associated Compounds</h4>
-@Html.ActionLink("Create New Compound for Work Order", "Create", new { Controller = "Compounds", OrderId = Model.OrderId })
+@Html.ActionLink("Create New Compound for Work Order", "Create", new { Controller = "Compounds", OrderId = Model.OrderId }, new { @class = "btn btn-info" })
 <table class="table table-hover">
     <tr>
         <th>
