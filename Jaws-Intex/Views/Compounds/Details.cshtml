@@ -104,7 +104,7 @@
         </div>
         <div>
             <p>
-                @Html.ActionLink("Update Status", "Create", new { Controller = "CompoundStatus", CompoundId = Model.CompoundId })
+                @Html.ActionLink("Update Status", "Create", new { Controller = "CompoundStatus", CompoundId = Model.CompoundId }, new { @class = "btn btn-info" })
             </p>
             <table class="table">
                 <tr>
@@ -134,13 +134,13 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CompoundId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CompoundId }, new { @class = "btn btn-info", @style = "margin-right:10px" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
 </p>
 <hr />
 <h4>Associated Samples</h4>
 <p>
-    @Html.ActionLink("Create New Sample for Compound", "Create", new { Controller = "Samples", CompoundId = Model.CompoundId })
+    @Html.ActionLink("Create New Sample for Compound", "Create", new { Controller = "Samples", CompoundId = Model.CompoundId }, new { @class = "btn btn-info" })
 </p>
 <table class="table table-hover">
     <tr>

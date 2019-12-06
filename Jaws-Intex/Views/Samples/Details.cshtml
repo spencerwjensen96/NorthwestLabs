@@ -86,7 +86,7 @@
         </dl>
         <div>
             <p>
-                @Html.ActionLink("Add New Test for Sample", "Create", new { Controller = "SampleTests", SampleId = Model.SampleId })
+                @Html.ActionLink("Add New Test for Sample", "Create", new { Controller = "SampleTests", SampleId = Model.SampleId }, new { @class = "btn btn-info" })
             </p>
             @if (Model.SampleTests.Count > 0)
             {
@@ -124,6 +124,6 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SampleId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SampleId }, new { @class = "btn btn-info", @style = "margin-right:10px" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
 </p>

@@ -45,6 +45,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to Sample", "Details", new { Controller = "Samples", id = Model.SampleId })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-info", @style = "margin-right:10px" })
+    @Html.ActionLink("Back to Sample", "Details", new { Controller = "Samples", id = Model.SampleId }, new { @class = "btn btn-info" })
 </p>
