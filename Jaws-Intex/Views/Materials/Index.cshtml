@@ -37,7 +37,7 @@
                 @((item.NumTestsScheduled != null) ? item.NumTestsScheduled : "None")
             </td>
             <td>
-                @Html.ActionLink("Edit Test", "Edit", new { Controller = "Tests", id = item.TestId })
+                @Html.ActionLink("Edit Test", "Edit", new { Controller = "Tests", id = item.TestId }, new { @class = "btn btn-info" })
             </td>
         </tr>
     }
