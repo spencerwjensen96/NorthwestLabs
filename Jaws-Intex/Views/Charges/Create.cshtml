@@ -48,5 +48,11 @@
 }
 
 <div>
-    @Html.ActionLink("Back to Work Order", "Details", new { Controller = "WorkOrders", id = Request.QueryString["OrderId"] }, new { @class = "btn btn-info" })
+    @( (Request.QueryString["OrderId"] != null)
+    ?
+        @Html.ActionLink("Back to Work Order", "Details", new { Controller = "WorkOrders", id = Request.QueryString["OrderId"] }, new { @class = "btn btn-info" })
+
+    :
+    @Html.ActionLink("Back to Work Order", "Index", new { Controller = "WorkOrders" }, new { @class = "btn btn-info" })
+    )
 </div>
