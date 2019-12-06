@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Materials";
+}
+
+<h2>Materials</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Test ID
+        </th>
+        <th>
+            Test Name
+        </th>
+        <th>
+            Quantity In Stock
+        </th>
+        <th>
+            Tests Scheduled This week
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in ViewBag.TestMaterials)
+    {
+        <tr>
+            <td>
+                @item.TestId
+            </td>
+            <td>
+                @item.TestName
+            </td>
+            <td>
+                @item.QtyInStock
+            </td>
+            <td>
+                @((item.NumTestsScheduled != null) ? item.NumTestsScheduled : "None")
+            </td>
+            <td>
+                @Html.ActionLink("Edit Test", "Edit", new { Controller = "Tests", id = item.TestId })
+            </td>
+        </tr>
+    }
+
+</table>
+

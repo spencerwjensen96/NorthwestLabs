@@ -161,10 +161,14 @@
                     @Html.DisplayFor(modelItem => item.Quoted_Price)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Data_Report_URL)
+                    <a href="https://northwestlabs.blob.core.windows.net/intex/Data_Report.pdf" target="_blank">
+                        @Html.DisplayFor(modelItem => item.Data_Report_URL)
+                    </a>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Summary_Report_URL)
+                    <a href="https://northwestlabs.blob.core.windows.net/intex/Test_Summary_Report.pdf" target="_blank">
+                        @Html.DisplayFor(modelItem => item.Summary_Report_URL)
+                    </a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Discount_Percent)

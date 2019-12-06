@@ -190,7 +190,9 @@
                     @Html.DisplayFor(modelItem => item.EndDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Sample_File_URL)
+                    <a href="https://northwestlabs.blob.core.windows.net/intex/Intex txt file example.txt" target="_blank">
+                        @Html.DisplayFor(modelItem => item.Sample_File_URL)
+                        </a>
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.SampleId, Controller = "Samples" }) |

@@ -1,0 +1,82 @@
+﻿@model Jaws_Intex.Models.Test
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Test</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Protocol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Protocol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestDurationDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestDurationDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConditionalTest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConditionalTest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BasePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BasePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialsCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialsCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WageEstimate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WageEstimate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtyInStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtyInStock)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TestId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

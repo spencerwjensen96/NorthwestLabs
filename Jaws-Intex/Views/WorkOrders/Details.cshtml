@@ -7,7 +7,13 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Work Order</h4>
+    <div style="display: flex; justify-content: space-between">
+        <h4>Work Order</h4>
+        <div>
+            @Html.ActionLink("Create Data Report", "CreateDataReport", new { id = Model.OrderId }, new { @class = "btn btn-info", @style = "margin-right: 20px" })
+            @Html.ActionLink("Upload Summary Report", "UploadSummaryReport", new { id = Model.OrderId }, new { @class = "btn btn-info" })
+        </div>
+    </div>
     <hr />
     <div style="display: flex; justify-content: space-between;">
         <dl class="dl-horizontal">
@@ -56,7 +62,9 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Data_Report_URL)
+                <a href="https://northwestlabs.blob.core.windows.net/intex/Data_Report.pdf" target="_blank">
+                    @Html.DisplayFor(model => model.Data_Report_URL)
+                 </a>
             </dd>
 
             <dt>
@@ -64,7 +72,9 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Summary_Report_URL)
+                <a href="https://northwestlabs.blob.core.windows.net/intex/Test_Summary_Report.pdf" target="_blank">
+                    @Html.DisplayFor(model => model.Summary_Report_URL)
+                </a>
             </dd>
 
             <dt>

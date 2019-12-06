@@ -44,6 +44,24 @@ namespace Jaws_Intex.Controllers
             return View(workOrders.ToList());
         }
 
+
+        [Authorize]
+        public ActionResult CreateDataReport(int? id)
+        {
+            db.Database.ExecuteSqlCommand("UPDATE Work_Order SET Data_Report_URL = 'Report' WHERE OrderId = " + id);
+            db.SaveChanges();
+            return new RedirectResult("/WorkOrders/Details/" + id);
+        }
+
+
+        [Authorize]
+        public ActionResult UploadSummaryReport(int? id)
+        {
+            db.Database.ExecuteSqlCommand("UPDATE Work_Order SET Summary_Report_URL = 'Report' WHERE OrderId = " + id);
+            db.SaveChanges();
+            return new RedirectResult("/WorkOrders/Details/" + id);
+        }
+
         // GET: WorkOrders/Details/5
         [Authorize]
         public ActionResult Details(int? id)

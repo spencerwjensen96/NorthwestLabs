@@ -133,8 +133,10 @@
     <Compile Include="Controllers\CompoundStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KnowledgeBasesController.cs" />
+    <Compile Include="Controllers\MaterialsController.cs" />
     <Compile Include="Controllers\SamplesController.cs" />
     <Compile Include="Controllers\SampleTestsController.cs" />
+    <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="DAL\NorthwestLabsContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -150,6 +152,7 @@
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\SampleCost.cs" />
+    <Compile Include="Models\TestMaterials.cs" />
     <Compile Include="Models\WorkOrder.cs" />
     <Compile Include="Models\WorkOrderStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,6 +209,13 @@
     <Content Include="Views\Charges\Edit.cshtml" />
     <Content Include="Views\Charges\Index.cshtml" />
     <Content Include="Views\Home\QuoteSuccess.cshtml" />
+    <Content Include="Views\Tests\Create.cshtml" />
+    <Content Include="Views\Tests\Delete.cshtml" />
+    <Content Include="Views\Tests\Details.cshtml" />
+    <Content Include="Views\Tests\Edit.cshtml" />
+    <Content Include="Views\Tests\Index.cshtml" />
+    <Content Include="Views\Materials\Index.cshtml" />
+    <Content Include="Views\Materials\OrderTests.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
