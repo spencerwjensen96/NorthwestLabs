@@ -151,6 +151,7 @@ namespace Jaws_Intex.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Sample sample = db.Samples.Find(id);
+            db.Database.ExecuteSqlCommand("DELETE FROM Sample_Test WHERE SampleId = " + id);
             db.Samples.Remove(sample);
             db.SaveChanges();
             return RedirectToAction("Index");
