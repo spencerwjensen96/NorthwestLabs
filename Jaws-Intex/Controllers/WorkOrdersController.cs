@@ -200,6 +200,7 @@ namespace Jaws_Intex.Controllers
         [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        //Need to go through and delete all children first
         public ActionResult DeleteConfirmed(int id)
         {
             WorkOrder workOrder = db.WorkOrders.Find(id);

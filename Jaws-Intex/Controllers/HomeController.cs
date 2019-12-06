@@ -29,9 +29,7 @@ namespace Jaws_Intex.Controllers
         [HttpGet]
         public ActionResult LogOut()
         {
-            Session.Clear();
             FormsAuthentication.SignOut();
-            Session.Abandon();
             return Redirect("/Home");
         }
 

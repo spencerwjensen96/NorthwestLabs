@@ -45,7 +45,7 @@ namespace Jaws_Intex.Models
         public string Notes { get; set; }
 
         [Display(Name = "Confirmation Sent")]
-        public Boolean Confirmation_Sent { get; set; }
+        public DateTime? Confirmation_Sent { get; set; }
 
         public virtual ICollection<Compound> Compounds { get; set; }
 

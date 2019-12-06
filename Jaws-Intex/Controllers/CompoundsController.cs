@@ -37,6 +37,7 @@ namespace Jaws_Intex.Controllers
             {
                 return HttpNotFound();
             }
+            //Get associated samples and compound statuses
             var associatedSamples = db.Samples.SqlQuery("SELECT * FROM Sample WHERE CompoundId = " + id).ToList<Sample>();
             var associatedCompoundStatuses = db.CompoundStatuses.SqlQuery("SELECT * FROM Compound_Status INNER JOIN Status ON Status.StatusId = Compound_Status.StatusId WHERE CompoundId = " + id).ToList<CompoundStatus>();
             compound.CompoundStatuses = associatedCompoundStatuses;
@@ -123,6 +124,7 @@ namespace Jaws_Intex.Controllers
         [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        //Deleting will have to go through all associated lists and delete them
         public ActionResult DeleteConfirmed(int id)
         {
             Compound compound = db.Compounds.Find(id);

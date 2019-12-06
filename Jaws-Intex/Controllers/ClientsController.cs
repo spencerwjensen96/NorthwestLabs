@@ -35,6 +35,7 @@ namespace Jaws_Intex.Controllers
             {
                 return HttpNotFound();
             }
+            //Get work orders associated with this client
             var associatedWorkOrders = db.WorkOrders.SqlQuery("SELECT * FROM Work_Order WHERE ClientId = " + id).ToList<WorkOrder>();
             client.WorkOrders = associatedWorkOrders;
             return View(client);

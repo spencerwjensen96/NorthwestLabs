@@ -34,7 +34,7 @@ namespace Jaws_Intex.Controllers
 
 
             Sample sample = db.Samples.Find(id);
-
+            //Get Cost for samples - Don't need all the joins but it works
             string query = $@"SELECT 
             S.SampleId,
             SUM(T.BasePrice + T.MaterialsCost + T.WageEstimate) AS Cost
@@ -56,6 +56,7 @@ namespace Jaws_Intex.Controllers
                 sampleTotalCost = "No associated tests found";
             }
             ViewBag.TotalCost = sampleTotalCost;
+            //Get associated tests with this sample
             var associatedSampleTests = db.SampleTests.SqlQuery("SELECT * FROM Sample_Test WHERE SampleId = " + id).ToList<SampleTest>();
             sample.SampleTests = associatedSampleTests;
             if (sample == null)
