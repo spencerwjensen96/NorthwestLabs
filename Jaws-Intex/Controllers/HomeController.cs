@@ -26,6 +26,15 @@ namespace Jaws_Intex.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult LogOut()
+        {
+            Session.Clear();
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return Redirect("/Home");
+        }
+
 
         [HttpGet]
         public ActionResult Login()
