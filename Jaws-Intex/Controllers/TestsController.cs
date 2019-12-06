@@ -16,12 +16,14 @@ namespace Jaws_Intex.Controllers
         private NorthwestLabsContext db = new NorthwestLabsContext();
 
         // GET: Tests
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Tests.ToList());
         }
 
         // GET: Tests/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: Tests/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +48,7 @@ namespace Jaws_Intex.Controllers
         // POST: Tests/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TestId,TestName,Protocol,TestDurationDays,ConditionalTest,BasePrice,MaterialsCost,WageEstimate,QtyInStock")] Test test)
@@ -60,6 +64,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: Tests/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,6 +82,7 @@ namespace Jaws_Intex.Controllers
         // POST: Tests/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "TestId,TestName,Protocol,TestDurationDays,ConditionalTest,BasePrice,MaterialsCost,WageEstimate,QtyInStock")] Test test)
@@ -91,6 +97,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: Tests/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,6 +113,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // POST: Tests/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

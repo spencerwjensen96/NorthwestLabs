@@ -15,6 +15,7 @@ namespace Jaws_Intex.Controllers
     {
         private NorthwestLabsContext db = new NorthwestLabsContext();
 
+        [Authorize]
         // GET: Materials
         public ActionResult Index()
         {
@@ -36,6 +37,7 @@ namespace Jaws_Intex.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult OrderTests(int? id)
         {
             return View(id);
