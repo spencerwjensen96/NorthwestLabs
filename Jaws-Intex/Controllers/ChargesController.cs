@@ -16,6 +16,7 @@ namespace Jaws_Intex.Controllers
         private NorthwestLabsContext db = new NorthwestLabsContext();
 
         // GET: Charges
+        [Authorize]
         public ActionResult Index()
         {
             var charges = db.Charges.Include(c => c.WorkOrder);
@@ -23,6 +24,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: Charges/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,6 +40,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: Charges/Create
+        [Authorize]
         public ActionResult Create(int? OrderId)
         {
             ViewBag.OrderId = new SelectList(db.WorkOrders, "OrderId", "OrderId");
@@ -47,6 +50,7 @@ namespace Jaws_Intex.Controllers
         // POST: Charges/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ChargeId,OrderId,Cost,Notes")] Charge charge)
@@ -63,6 +67,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: Charges/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,6 +86,7 @@ namespace Jaws_Intex.Controllers
         // POST: Charges/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ChargeId,OrderId,Cost,Notes")] Charge charge)
@@ -96,6 +102,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // GET: Charges/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -111,6 +118,7 @@ namespace Jaws_Intex.Controllers
         }
 
         // POST: Charges/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

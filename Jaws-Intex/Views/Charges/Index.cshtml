@@ -7,9 +7,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.WorkOrder.Data_Report_URL)
@@ -24,7 +25,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr onclick="location.href = '@Url.Action("Details", null, new { id = item.ChargeId, Controller = "Charges" })'">
         <td>
             @Html.DisplayFor(modelItem => item.WorkOrder.Data_Report_URL)
         </td>
@@ -35,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.Notes)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ChargeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ChargeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ChargeId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ChargeId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ChargeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ChargeId })
         </td>
     </tr>
 }

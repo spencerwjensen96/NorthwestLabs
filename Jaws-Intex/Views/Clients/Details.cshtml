@@ -117,13 +117,13 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId }) |
-    @Html.ActionLink("Back to List of Clients", "Index")
+    @Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId }, new { @class = "btn btn-info", @style = "margin-right:10px" })
+    @Html.ActionLink("Back to List of Clients", "Index", null, new { @class = "btn btn-info" })
 </p>
 <hr />
 <h4>Client's Work Orders</h4>
 <p>
-    @Html.ActionLink("Create New Work Order for Client", "Create", new { Controller = "WorkOrders", ClientId = Model.ClientId })
+    @Html.ActionLink("Create New Work Order for Client", "Create", new { Controller = "WorkOrders", ClientId = Model.ClientId }, new { @class = "btn btn-info" })
 </p>
 <table class="table table-hover">
     <tr>
