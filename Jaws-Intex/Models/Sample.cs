@@ -32,6 +32,7 @@ namespace Jaws_Intex.Models
         public decimal? Absorption { get; set; }
 
         [Display(Name = "Quantity (mg)")]
+        [Required]
         public string Quantity { get; set; }
 
         [Display(Name = "Start Date")]
